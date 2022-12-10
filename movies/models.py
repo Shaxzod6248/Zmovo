@@ -5,7 +5,7 @@ import os
 
 def validate_file_extension(value):
     ext = os.path.splitext(value.name)[1]
-    valid_extensions = ['.pdf', '.doc', '.docx', '.avi']
+    valid_extensions = ['.pdf', '.doc', '.docx', '.avi', '.mp4']
     if not ext.lower() in valid_extensions:
         raise ValidationError('Unsupported file extension.')
 
@@ -19,7 +19,7 @@ class Category(models.Model):
 
 class Movie(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
-    video = models.FileField(upload_to='videos', null=True)
+    video = models.FileField(upload_to='videos', null=True, verbose_name="")
     title = models.CharField(max_length=300, null=True)
     description = models.TextField(blank=True, null=True)
     hours = models.CharField(max_length=300, null=True)
