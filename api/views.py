@@ -7,7 +7,6 @@ from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnl
 class MovieViewSet(viewsets.ModelViewSet):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
-    permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
